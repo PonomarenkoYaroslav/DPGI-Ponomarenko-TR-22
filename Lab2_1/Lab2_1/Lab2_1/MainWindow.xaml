@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Lab2_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Canvas Background="Aqua">
+        <Label Canvas.Left="20" Canvas.Top="20" Content="Label"/>
+        <TextBox Canvas.Left="40" Canvas.Top="40" Text="TextBox"/>
+        <Button Canvas.Left="60" Canvas.Top="60" Content="Button"/>
+    </Canvas>
+
 </Window>
