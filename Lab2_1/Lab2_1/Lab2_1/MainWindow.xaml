@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:Lab2_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel VerticalAlignment="Top" Height="200" Width="410" Margin="5">
+        <Label Content="Label" DockPanel.Dock="Top" Margin="5" HorizontalContentAlignment="Center"/>
+        <TextBox Text="TextBox" DockPanel.Dock="Left" Width="160" Margin="5"/>
+        <TextBox Text="TextBox" DockPanel.Dock="Right" Width="160" Margin="5"/>
+        <Button Content="Button" DockPanel.Dock="Bottom" Width="70" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,50"/>
+    </DockPanel>
+
 </Window>
