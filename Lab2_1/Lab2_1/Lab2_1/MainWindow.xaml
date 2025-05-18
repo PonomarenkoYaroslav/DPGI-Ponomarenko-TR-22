@@ -29,5 +29,19 @@
                 </Button>
             </StackPanel>
         </Border>
+        <!-- Текстова область -->
+        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0" VerticalScrollBarVisibility="Visible"/>
+                <DockPanel Grid.Row="1">
+                    <Button DockPanel.Dock="Bottom" Content="ОК" HorizontalAlignment="Center"/>
+                </DockPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
