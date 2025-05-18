@@ -6,7 +6,25 @@
         xmlns:local="clr-namespace:Lab2_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="410" Margin="55">
+        <Label Content="Label"/>
+        <TextBox Text="TextBox"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <Label Content="Label"/>
+        <TextBox Text="TextBox"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <TextBox Text="TextBox" BorderThickness="0,1,1,1"/>
+        <Button Content="Button" Margin="165,20,20,20"/>
+    </WrapPanel>
 </Window>
