@@ -53,9 +53,16 @@
                 </Grid.RowDefinitions>
 
                 <TextBox Grid.Row="0" VerticalScrollBarVisibility="Visible"/>
+                <!-- Додано Slider для розміру шрифту -->
                 <DockPanel Grid.Row="1">
-                    <Button Style="{x:Null}" Content="ОК" HorizontalAlignment="Center"/>
+                    <Label DockPanel.Dock="Left" Content="Розмір шрифту:"/>
+                    <Slider DockPanel.Dock="Left" Margin="4" MinWidth="100" 
+            Name="fontSlider" Maximum="100" Minimum="12"/>
+                    <Button HorizontalAlignment="Center" Content="ОК" Command="Save"/>
                 </DockPanel>
+                <!-- Прив'язка розміру шрифту TextBox до Slider -->
+                <TextBox Grid.Row="0" VerticalScrollBarVisibility="Auto"
+         FontSize="{Binding ElementName=fontSlider, Path=Value}"/>
             </Grid>
         </Border>
     </Grid>
