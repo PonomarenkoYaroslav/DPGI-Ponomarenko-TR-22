@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:Lab2_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Margin="0,60,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Label Content="Label" HorizontalAlignment="Center" Margin="5" Width="400" HorizontalContentAlignment="Center" BorderBrush="#FFABADB3" BorderThickness="0,0,0,1"/>
+        <TextBox Margin="5" Width="400" Text="TextBox" BorderThickness="0,0,0,1"/>
+        <TextBox Margin="5" Width="400" Text="TextBox" BorderThickness="0,0,0,1"/>
+        <TextBox Margin="5" Width="400" Text="TextBox" BorderThickness="0,0,0,1"/>
+        <TextBox Margin="5" Width="400" Text="TextBox" BorderThickness="0,0,0,1"/>
+        <Button Content="Button" Margin="55" Width="200"/>
+    </StackPanel>
+
 </Window>
