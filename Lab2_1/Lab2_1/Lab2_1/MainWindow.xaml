@@ -6,6 +6,21 @@
         xmlns:local="clr-namespace:Lab2_1"
         mc:Ignorable="d"
         Title="TextEditor" Height="450" Width="800">
+    <Window.Resources>
+        <!-- Градієнтний пензель -->
+        <LinearGradientBrush x:Key="LinearPanelBrush">
+            <GradientStop Color="Yellow" Offset="0"/>
+            <GradientStop Color="Aqua" Offset="0.5"/>
+            <GradientStop Color="Yellow" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Стиль для кнопок -->
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <!-- Панель інструментів -->
-        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10">
+        <Border Grid.Row="0" Background="{StaticResource LinearPanelBrush}" BorderThickness="2" CornerRadius="10">
             <StackPanel Orientation="Horizontal">
                 <Button ToolTip="Відкрити">
                     <Image Source="images\open.png" Width="100" Height="100"/>
@@ -30,7 +45,7 @@
             </StackPanel>
         </Border>
         <!-- Текстова область -->
-        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10">
+        <Border Grid.Row="1" Background="{StaticResource LinearPanelBrush}" BorderThickness="2" CornerRadius="10">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -39,9 +54,10 @@
 
                 <TextBox Grid.Row="0" VerticalScrollBarVisibility="Visible"/>
                 <DockPanel Grid.Row="1">
-                    <Button DockPanel.Dock="Bottom" Content="ОК" HorizontalAlignment="Center"/>
+                    <Button Style="{x:Null}" Content="ОК" HorizontalAlignment="Center"/>
                 </DockPanel>
             </Grid>
         </Border>
     </Grid>
 </Window>
+    
