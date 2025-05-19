@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab3"
         mc:Ignorable="d"
-        Title="Конвертер валют" Height="350" Width="400">
+        Title="Конвертер валют" Height="450" Width="400">
     <Window.Resources>
         <!-- Градієнтний пензель для фону -->
         <LinearGradientBrush x:Key="PanelGradient" StartPoint="0,0" EndPoint="1,1">
@@ -52,7 +52,7 @@
 
         <!-- Вибір валюти -->
         <Border Grid.Row="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="336">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="336">
                 <TextBlock Text="Валюта:" Margin="0,0,10,0" VerticalAlignment="Center"/>
                 <ComboBox x:Name="CurrencyComboBox" Width="150" SelectedIndex="0"/>
             </StackPanel>
