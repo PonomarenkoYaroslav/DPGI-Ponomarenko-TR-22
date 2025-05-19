@@ -5,8 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Конвертер валют" Height="350" Width="400">
+    <Window.Resources>
+        <!-- Градієнтний пензель для фону -->
+        <LinearGradientBrush x:Key="PanelGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0"/>
+            <GradientStop Color="Aqua" Offset="0.5"/>
+            <GradientStop Color="Yellow" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Стиль для кнопок -->
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <!-- Стиль для рамок -->
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#FFCBBEBE"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="{StaticResource PanelGradient}"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock Text="Конвертер валют" 
+                      FontSize="20" 
+                      FontWeight="Bold" 
+                      HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Вибір валюти -->
+        <Border Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="336">
+                <TextBlock Text="Валюта:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <ComboBox x:Name="CurrencyComboBox" Width="150" SelectedIndex="0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Введення суми -->
+        <Border Grid.Row="2" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сума:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <TextBox x:Name="AmountTextBox" Width="150" Text="0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Вибір напрямку конвертації -->
+        <Border Grid.Row="3" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:Name="ToUahRadio" Content="В гривні" IsChecked="True" GroupName="Conversion"/>
+                <RadioButton x:Name="FromUahRadio" Content="З гривні" Margin="10,0,0,0" GroupName="Conversion"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Кнопка конвертації -->
+        <Border Grid.Row="4" Margin="0,20,0,0">
+            <Button Content="Конвертувати" 
+                   Height="30" 
+                   Click="ConvertButton_Click"
+                   Style="{StaticResource {x:Type Button}}"/>
+        </Border>
+
+        <!-- Результат -->
+        <Border Grid.Row="5" Margin="0,20,0,0">
+            <TextBlock x:Name="ResultText" 
+                      FontSize="16" 
+                      FontWeight="Bold" 
+                      HorizontalAlignment="Center"/>
+        </Border>
     </Grid>
 </Window>
