@@ -98,7 +98,7 @@
   <ItemGroup>
     <Resource Include="images\paste.png" />
     <Resource Include="images\copy.png" />
-    <Resource Include="images\clear.png" />
+    <Resource Include="images\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\open.png" />

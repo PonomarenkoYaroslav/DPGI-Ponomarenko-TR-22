@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="TextEditor" Height="450" Width="800">
     <Window.Resources>
-        <!-- Градієнтний пензель -->
-        <LinearGradientBrush x:Key="LinearPanelBrush">
+        <!-- Градієнтний пензель для панелей -->
+        <LinearGradientBrush x:Key="PanelGradient" StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="Yellow" Offset="0"/>
             <GradientStop Color="Aqua" Offset="0.5"/>
             <GradientStop Color="Yellow" Offset="1"/>
@@ -19,52 +19,60 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
         </Style>
     </Window.Resources>
-    <Grid>
+
+    <Grid FocusManager.IsFocusScope="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!-- Панель інструментів -->
-        <Border Grid.Row="0" Background="{StaticResource LinearPanelBrush}" BorderThickness="2" CornerRadius="10">
-            <StackPanel Orientation="Horizontal">
-                <Button ToolTip="Відкрити">
-                    <Image Source="images\open.png" Width="100" Height="100"/>
+        <!-- Верхня панель інструментів -->
+        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" 
+                CornerRadius="10" Background="{StaticResource PanelGradient}">
+            <StackPanel Orientation="Horizontal" FocusManager.IsFocusScope="True">
+                <Button ToolTip="Відкрити" Command="ApplicationCommands.Open">
+                    <Image Source="Images/open.png" Width="100" Height="100"/>
                 </Button>
-                <Button ToolTip="Стерти">
-                    <Image Source="images\clear.png" Width="100" Height="100"/>
+                <Button ToolTip="Стерти" Command="ApplicationCommands.Delete">
+                    <Image Source="Images/delete.png" Width="100" Height="100"/>
                 </Button>
-                <Button ToolTip="Копіювати">
-                    <Image Source="images\copy.png" Width="100" Height="100"/>
+                <Button ToolTip="Копіювати" Command="ApplicationCommands.Copy">
+                    <Image Source="Images/copy.png" Width="100" Height="100"/>
                 </Button>
-                <Button ToolTip="Вставити">
-                    <Image Source="images\paste.png" Width="100" Height="100"/>
+                <Button ToolTip="Вставити" Command="ApplicationCommands.Paste">
+                    <Image Source="Images/paste.png" Width="100" Height="100"/>
                 </Button>
             </StackPanel>
         </Border>
-        <!-- Текстова область -->
-        <Border Grid.Row="1" Background="{StaticResource LinearPanelBrush}" BorderThickness="2" CornerRadius="10">
+
+        <!-- Основна текстова область -->
+        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" 
+                CornerRadius="10" Background="{StaticResource PanelGradient}">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Row="0" VerticalScrollBarVisibility="Visible"/>
-                <!-- Додано Slider для розміру шрифту -->
-                <DockPanel Grid.Row="1">
-                    <Label DockPanel.Dock="Left" Content="Розмір шрифту:"/>
+                <!-- Текстове поле з прив'язкою розміру шрифту -->
+                <TextBox x:Name="MainTextBox" Grid.Row="0" 
+                        VerticalScrollBarVisibility="Auto"
+                        FontSize="{Binding ElementName=FontSizeSlider, Path=Value}"/>
+
+                <!-- Нижня панель з повзунком і кнопкою -->
+                <DockPanel Grid.Row="1" Margin="0,5,0,0">
+                    <Label DockPanel.Dock="Left" Content="Розмір шрифту:" 
+                          VerticalAlignment="Center"/>
                     <Slider DockPanel.Dock="Left" Margin="4" MinWidth="100" 
-            Name="fontSlider" Maximum="100" Minimum="12"/>
-                    <Button HorizontalAlignment="Center" Content="ОК" Command="Save"/>
+                            Name="FontSizeSlider" Maximum="100" Minimum="12" Value="14"
+                            VerticalAlignment="Center"/>
+                    <Button DockPanel.Dock="Right" Content="ОК" 
+                            Command="ApplicationCommands.Save" Style="{x:Null}" HorizontalAlignment="Center"/>
                 </DockPanel>
-                <!-- Прив'язка розміру шрифту TextBox до Slider -->
-                <TextBox Grid.Row="0" VerticalScrollBarVisibility="Auto"
-         FontSize="{Binding ElementName=fontSlider, Path=Value}"/>
             </Grid>
         </Border>
     </Grid>
 </Window>
-    
